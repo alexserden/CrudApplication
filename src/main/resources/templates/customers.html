@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>CustomersBlacklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+ 
+</head>
+<body class=" p-3 mb-2 bg-warning text-white">
+<div class="container">
+	<div class="col-md-4">
+		<h2>Customers BlackList</h2>
+	</div>
+	<div class="col-md-4">
+		<h3 th:inline="text">[[${#httpServletRequest.remoteUser}]]</h3>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn-sm btn-danger"/>
+		</form>
+	</div>
+    
+    <div style="padding:0 20px">
+    <table class="table table-striped">
+		<tr>
+		    <th>FirstName</th>
+		    <th>LastName</th>
+		    <th>Description</th>
+		    <th>Edit</th>
+		    <th>Delete</th>
+		</tr>  
+    	<tr th:each = "customer : ${customers}">
+    		<td th:text="${customer.firstName}"></td>
+			<td th:text="${customer.lastName}"></td>
+			<td th:text="${customer.description}"></td>
+    		<td>
+    			<a th:href="@{/edit/{id}(id=${customer.id})}" class="btn btn-success btn-xs">Edit</a>
+			</td>
+			<td>
+    			<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/delete/{id}(id=${customer.id})}" class="btn btn-danger btn-xs">Delete</a>
+    		</td>
+    	</tr>
+    </table>
+    <a href="/add" class="btn btn-success">Add Customer</a>
+	</div>    
+</div>
+</body>
+</html>

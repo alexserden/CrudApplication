@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit customer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body class=" p-3 mb-2 bg-warning text-white">
+<div class="container">
+	<h1>Edit customers</h1>
+	<div class="col-md-4">
+		<form th:object="${customer}" th:action="@{../save}" action="#" method="post">
+			<input type="hidden" th:field="*{id}" class="form-control"/>
+			<input type="text" th:field="*{firstName}" class="form-control"
+				placeholder="Firstname" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{lastName}" class="form-control"
+				placeholder="Lastname" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{description}" class="form-control"
+				placeholder="Description" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"/>
+		</form>
+	</div>
+</div>
+</body>
+</html>
