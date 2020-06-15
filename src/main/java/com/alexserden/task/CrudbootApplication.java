@@ -1,12 +1,10 @@
 package com.alexserden.task;
 
 import com.alexserden.task.model.Customer;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
 import com.alexserden.task.repository.CustomerRepository;
 import com.alexserden.task.model.User;
 import com.alexserden.task.repository.UserRepository;

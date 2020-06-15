@@ -16,6 +16,7 @@ import com.alexserden.task.service.UserDetailServiceImpl;
 @EnableWebSecurity
 @ComponentScan("com.alexserden.task")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private UserDetailServiceImpl userDetailsService;
     
