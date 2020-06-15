@@ -13,12 +13,10 @@ import com.alexserden.task.repository.UserRepository;
 
 @SpringBootApplication
 public class CrudbootApplication {
-	
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrudbootApplication.class, args);
 	}
-	
 
 	@Bean
 	public CommandLineRunner demo(CustomerRepository repository, UserRepository urepository) {
